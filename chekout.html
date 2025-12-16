@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>চেকআউট | মেধাবী শপ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial;background:#f4f6f8;margin:0}
+header,footer{background:#0b5e3c;color:white;padding:15px;text-align:center}
+.container{max-width:600px;margin:30px auto;background:white;padding:25px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.15); }
+h2{text-align:center;color:#0b5e3c}
+label{display:block;margin-top:15px;font-weight:bold}
+input,textarea,select{width:100%;padding:10px;margin-top:6px;border:1px solid #ccc;border-radius:6px;font-size:15px}
+textarea{resize:none}
+button{margin-top:20px;width:100%;padding:12px;font-size:16px;background:#0b5e3c;color:white;border:none;border-radius:8px;cursor:pointer}
+button:hover{background:#094c31}
+.note{font-size:13px;color:#555;margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>মেধাবী শপ</h1>
+  
+</header>
+
+<div class="container">
+  <h2>অর্ডার সম্পন্ন করুন</h2>
+ <h2>Contact us</h2>
+  <form onsubmit="sendOrder(); return false;">
+
+    <label>পণ্যের নাম</label>
+    <input type="text" id="product" placeholder="যে পণ্য অর্ডার করছেন" required>
+
+    <label>পরিমাণ</label>
+    <select id="quantity">
+      <option value="1">১</option>
+      <option value="2">২</option>
+      <option value="3">৩</option>
+      <option value="4">৪</option>
+    </select>
+
+    <label>আপনার নাম</label>
+    <input type="text" id="name" placeholder="আপনার পূর্ণ নাম" required>
+
+    <label>মোবাইল নাম্বার</label>
+    <input type="tel" id="phone" placeholder="01XXXXXXXXX" required>
+
+    <label>সম্পূর্ণ ঠিকানা</label>
+    <textarea id="address" rows="3" placeholder="বাড়ি, এলাকা, জেলা" required></textarea>
+
+    <label>পেমেন্ট পদ্ধতি</label>
+    <select id="payment">
+      <option>Cash on Delivery</option>
+    </select>
+
+    <button type="submit">অর্ডার কনফার্ম করুন</button>
+
+  </form>
+
+  <p class="note">অর্ডার কনফার্ম করার পর আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবে ইনশাআল্লাহ।</p>
+</div>
+
+<footer>
+  © 2025 মেধাবী শপ | Islamic E-Commerce
+</footer>
+
+<script>
+function sendOrder(){
+  let product = document.getElementById('product').value;
+  let qty = document.getElementById('quantity').value;
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let address = document.getElementById('address').value;
+  let payment = document.getElementById('payment').value;
+
+  let message = `নতুন অর্ডার%0A%0Aপণ্য: ${product}%0Aপরিমাণ: ${qty}%0Aনাম: ${name}%0Aমোবাইল: ${phone}%0Aঠিকানা: ${address}%0Aপেমেন্ট: ${payment}`;
+
+  let whatsappNumber = '8801XXXXXXXXX'; // এখানে নিজের নাম্বার বসাও
+  let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
+
